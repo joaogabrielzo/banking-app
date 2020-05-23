@@ -6,15 +6,8 @@ import java.util.List;
 
 public interface TransactionService {
 
-    public void deposit(Float amount);
+    List<Transaction> getTransactionsFromUser(String user);
 
-    public void withdraw(Float amount);
-
-    public void transfer(Float amount, String toUser);
-
-    public void pay(Float amount, String to);
-
-    public List<Transaction> getTransactionsFromUser(String user);
-
+    void addTransaction(Transaction transaction);
 
 }

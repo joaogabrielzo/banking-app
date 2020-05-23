@@ -4,12 +4,16 @@ import com.zo.bankingapp.domain.Account;
 
 public interface AccountService {
 
-    public void createAccount(String user);
+    void createAccount(String user);
 
-    public Float getBalanceFromUser(String user);
+    double getBalanceFromUser(String user);
 
-    public void updateBalance(String user, Float amount);
+    void endAccount(String user);
 
-    public void endAccount(String user);
+    void deposit(String user, double amount);
+
+    void withdraw(String user, double amount);
+
+    void transfer(String user, double amount, String toUser);
 
 }

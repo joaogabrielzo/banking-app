@@ -1,11 +1,10 @@
 package com.zo.bankingapp.domain;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity(name = "user")
-@Data
 public class User {
 
     @Id
@@ -15,5 +14,14 @@ public class User {
     @Column(nullable = false)
     private String password;
 
+    public String getUsername() {
+
+        return username;
+    }
+
+    public String getPassword() {
+
+        return password;
+    }
 
 }

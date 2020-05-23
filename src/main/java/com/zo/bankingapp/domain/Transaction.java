@@ -1,27 +1,43 @@
 package com.zo.bankingapp.domain;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.sql.*;
 
 @Entity(name = "transaction")
-@Data
 public class Transaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = true)
-    private String from_user;
+    @Column(nullable = true, name = "from_user")
+    private String fromUser;
 
-    private String to_user;
+    @Column(name = "to_user")
+    private String toUser;
 
-    private String transaction_type;
+    @Column(name = "transaction_type")
+    private String transactionType;
 
     private Float amount;
 
-    @Temporal(TemporalType.TIMESTAMP)
     private Timestamp transaction_date;
+
+    public Transaction(Long id,
+                       String fromUser,
+                       String toUser,
+                       String transactionType,
+                       Float amount,
+                       Timestamp transaction_date) {
+
+        this.id               = id;
+        this.fromUser         = fromUser;
+        this.toUser           = toUser;
+        this.transactionType  = transactionType;
+        this.amount           = amount;
+        this.transaction_date = transaction_date;
+    }
+
 }

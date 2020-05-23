@@ -1,17 +1,25 @@
 package com.zo.bankingapp.domain;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity(name = "account")
-@Data
 public class Account {
 
     @Id
     @Column(unique = true)
     private String username;
 
-    private final double balance = 0.0;
+    private double balance;
+
+    public Account(String user, double newBalance) {
+
+    }
+
+    public double getBalance() {
+
+        return balance;
+    }
 
 }
