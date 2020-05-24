@@ -1,11 +1,10 @@
 package com.zo.bankingapp.domain;
 
-import lombok.*;
-
 import javax.persistence.*;
-import java.sql.*;
+import java.sql.Timestamp;
 
 @Entity(name = "transaction")
+
 public class Transaction {
 
     @Id
@@ -21,23 +20,38 @@ public class Transaction {
     @Column(name = "transaction_type")
     private String transactionType;
 
-    private Float amount;
+    private double amount;
 
-    private Timestamp transaction_date;
+    @Column(name = "transaction_date")
+    private Timestamp transactionDate;
 
-    public Transaction(Long id,
-                       String fromUser,
-                       String toUser,
-                       String transactionType,
-                       Float amount,
-                       Timestamp transaction_date) {
+    public Transaction() {
 
-        this.id               = id;
-        this.fromUser         = fromUser;
-        this.toUser           = toUser;
-        this.transactionType  = transactionType;
-        this.amount           = amount;
-        this.transaction_date = transaction_date;
+    }
+
+    public void setFromUser(String fromUser) {
+
+        this.fromUser = fromUser;
+    }
+
+    public void setToUser(String toUser) {
+
+        this.toUser = toUser;
+    }
+
+    public void setTransactionType(String transactionType) {
+
+        this.transactionType = transactionType;
+    }
+
+    public void setAmount(double amount) {
+
+        this.amount = amount;
+    }
+
+    public void setTransactionDate(Timestamp transactionDate) {
+
+        this.transactionDate = transactionDate;
     }
 
 }
